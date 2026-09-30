@@ -26,7 +26,8 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
-const ID_LINE = /^id:\s*([0-9A-HJKMNP-TV-Z]{26})\s*$/m;
+// A 16-byte value fills 128 of the 130 bits, so the first character is `0`-`7`.
+const ID_LINE = /^id:\s*([0-7][0-9A-HJKMNP-TV-Z]{25})\s*$/m;
 const ANY_ID_LINE = /^id:.*$/m;
 const KIND_LINE = /^kind:\s*(\S+)\s*$/m;
 const VERSION_LINE = /^version:.*$/m;
